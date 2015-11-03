@@ -27,6 +27,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get('/api/comments', function(req, res) {
   fs.readFile(COMMENTS_FILE, function(err, data) {
     res.setHeader('Cache-Control', 'no-cache');
+    console.log('comments: ', data);
     res.json(JSON.parse(data));
   });
 });
